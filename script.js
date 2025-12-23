@@ -1,6 +1,6 @@
 const AppState = {
     currentLang: 'en',
-    currentTheme: 'dark',
+    currentTheme: 'light',
     currentSection: 'home',
     isMenuOpen: false,
     isLoaded: false
@@ -39,7 +39,7 @@ function initLanguage() {
 }
 
 function toggleLanguage() {
-    const newLang = AppState.currentLang === 'en' ? 'ar' : 'en';
+    const newLang = AppState.currentLang === 'en' ? 'fr' : 'en';
     setLanguage(newLang);
     localStorage.setItem('portfolio-lang', newLang);
 }
@@ -49,11 +49,11 @@ function setLanguage(lang) {
     const html = document.documentElement;
     const body = document.body;
     
-    if (lang === 'ar') {
-        html.setAttribute('lang', 'ar');
-        html.setAttribute('dir', 'rtl');
-        body.setAttribute('data-lang', 'ar');
-        body.setAttribute('data-dir', 'rtl');
+    if (lang === 'fr') {
+        html.setAttribute('lang', 'fr');
+        html.setAttribute('dir', 'ltr');
+        body.setAttribute('data-lang', 'fr');
+        body.setAttribute('data-dir', 'ltr');
     } else {
         html.setAttribute('lang', 'en');
         html.setAttribute('dir', 'ltr');
@@ -64,23 +64,23 @@ function setLanguage(lang) {
 }
 
 function updateLanguageUI() {
-    const textElements = document.querySelectorAll('[data-text-en], [data-text-ar]');
+    const textElements = document.querySelectorAll('[data-text-en], [data-text-fr]');
     textElements.forEach(element => {
         const enText = element.getAttribute('data-text-en');
-        const arText = element.getAttribute('data-text-ar');
-        if (AppState.currentLang === 'ar' && arText) {
-            element.textContent = arText;
+        const frText = element.getAttribute('data-text-fr');
+        if (AppState.currentLang === 'fr' && frText) {
+            element.textContent = frText;
         } else if (AppState.currentLang === 'en' && enText) {
             element.textContent = enText;
         }
     });
     
-    const placeholderElements = document.querySelectorAll('[data-placeholder-en], [data-placeholder-ar]');
+    const placeholderElements = document.querySelectorAll('[data-placeholder-en], [data-placeholder-fr]');
     placeholderElements.forEach(element => {
         const enPlaceholder = element.getAttribute('data-placeholder-en');
-        const arPlaceholder = element.getAttribute('data-placeholder-ar');
-        if (AppState.currentLang === 'ar' && arPlaceholder) {
-            element.setAttribute('placeholder', arPlaceholder);
+        const frPlaceholder = element.getAttribute('data-placeholder-fr');
+        if (AppState.currentLang === 'fr' && frPlaceholder) {
+            element.setAttribute('placeholder', frPlaceholder);
         } else if (AppState.currentLang === 'en' && enPlaceholder) {
             element.setAttribute('placeholder', enPlaceholder);
         }
@@ -90,7 +90,7 @@ function updateLanguageUI() {
     if (langToggle) {
         const langText = langToggle.querySelector('.lang-text');
         if (langText) {
-            langText.textContent = AppState.currentLang === 'en' ? 'AR' : 'EN';
+            langText.textContent = AppState.currentLang === 'en' ? 'FR' : 'EN';
         }
     }
 }

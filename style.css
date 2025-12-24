@@ -196,6 +196,19 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
   margin-top: 1rem;
 }
 
+/* Animated dots for loading text */
+.loading-dots::after {
+    content: '';
+    animation: dots 1.5s steps(3, end) infinite;
+}
+
+@keyframes dots {
+    0%   { content: ''; }
+    33%  { content: '.'; }
+    66%  { content: '..'; }
+    100% { content: '...'; }
+}
+
 /* ==========================================================================
    5) Header / Navigation
    ========================================================================== */
@@ -507,6 +520,18 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
   justify-content: center;
   background: var(--bg-card);
   will-change: transform;
+}
+
+.profile-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-image-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s ease, opacity 0.6s ease;
 }
 
 .profile-placeholder { font-size: 8rem; color: var(--primary); opacity: 0.3; }

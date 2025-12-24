@@ -1,555 +1,562 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Karim Zayni | CFD Engineer</title>
+        
+        <!-- Tailwind CSS (CDN for development only) -->
+        <script>
+            // Suppress Tailwind CDN warning
+            if (typeof console !== 'undefined' && console.warn) {
+                const originalWarn = console.warn;
+                console.warn = function(...args) {
+                    if (args[0] && typeof args[0] === 'string' && args[0].includes('tailwindcss.com')) {
+                        return; // Suppress Tailwind CDN warning
+                    }
+                    originalWarn.apply(console, args);
+                };
+            }
+        </script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./style.css">
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Karim Zayni | CFD Engineer</title>
-    <link rel="stylesheet" href="./style.css">
+        <!-- Custom JS -->
+        <script  src="./script.js"></script>
 
-  </head>
-    
-  <body>
-  <html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Professional Portfolio - Developer CV</title>
-    
-    <!-- Tailwind CSS (CDN for development only) -->
-    <script>
-        // Suppress Tailwind CDN warning
-        if (typeof console !== 'undefined' && console.warn) {
-            const originalWarn = console.warn;
-            console.warn = function(...args) {
-                if (args[0] && typeof args[0] === 'string' && args[0].includes('tailwindcss.com')) {
-                    return; // Suppress Tailwind CDN warning
-                }
-                originalWarn.apply(console, args);
-            };
-        }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="body-main" data-theme="dark" data-lang="en" data-dir="ltr">
-    
-    <!-- Loading Screen -->
-    <div class="loader-screen" id="loader">
-        <div class="loader-content">
-            <div class="loader-code-text">
-                <div class="code-line" data-line="1">Loading Karim Zayni</div>
-                <div class="code-line" data-line="2">Preparing portfolio...</div>
-                <div class="code-line" data-line="3">CFD - Mesh - HPC</div>
-                <div class="code-line" data-line="4">Almost there.</div>
+        <!-- Lottie animation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    </head>
+    <body class="body-main" data-theme="dark" data-lang="en" data-dir="ltr">
+        
+        <!-- Loading Screen -->
+        <div class="loader-screen" id="loader">
+            <div class="loader-content">
+                <div class="loader-code-text">
+                    <div class="code-line" data-line="1">Loading Karim Zayni<span class="loading-dots"></span></div>
+                    <div class="code-line" data-line="2">Preparing portfolio</div>
+                </div>
+                <div class="loader-spinner-wrapper">
+                    <div class="loader-spinner"></div>
+                </div>
+                <div class="loader-progress-wrapper">
+                    <div class="loader-progress-bar"></div>
+                </div>
+                <div class="loader-percentage" id="loaderPercent">0%</div>
+                <div id="loader-animation" style="width: 240px; height: 180px; margin: 0 auto;">
+                <script
+                src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
+                type="module"
+                ></script>
+
+                <dotlottie-wc
+                src="https://lottie.host/51b31ddd-5d6a-4d84-a20d-187631011451/yUx96pdcvW.json"
+                style="width: 300px;height: 300px"
+                autoplay
+                loop
+                ></dotlottie-wc>
+                </div>
             </div>
-            <div class="loader-spinner-wrapper">
-                <div class="loader-spinner"></div>
-            </div>
-            <div class="loader-progress-wrapper">
-                <div class="loader-progress-bar"></div>
-            </div>
-            <div class="loader-percentage" id="loaderPercent">0%</div>
         </div>
-    </div>
 
-    <!-- Navigation Header -->
-    <header class="main-header" id="header">
-        <nav class="nav-container">
-            <div class="nav-brand">
-            </div>
-            
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active" data-section="home">
-                    <i class="fas fa-home"></i>
-                    <span class="nav-text" data-text-en="Home" data-text-fr="Acceuil">Home</span>
-                </a>
-                <a href="#about" class="nav-link" data-section="about">
-                    <i class="fas fa-user"></i>
-                    <span class="nav-text" data-text-en="About" data-text-fr="Profil">About</span>
-                </a>
-                <a href="#experience" class="nav-link" data-section="experience">
-                    <i class="fas fa-briefcase"></i>
-                    <span class="nav-text" data-text-en="Experience" data-text-fr="Expérience">Experience</span>
-                </a>
-                <a href="#education" class="nav-link" data-section="education">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span class="nav-text" data-text-en="Education" data-text-fr="Éducation">Education</span>
-                </a>
-                <a href="#skills" class="nav-link" data-section="skills">
-                    <i class="fas fa-code"></i>
-                    <span class="nav-text" data-text-en="Skills" data-text-fr="Compétences">Skills</span>
-                </a>
-                <a href="#contact" class="nav-link" data-section="contact">
-                    <i class="fas fa-envelope"></i>
-                    <span class="nav-text" data-text-en="Contact" data-text-fr="Contact">Contact</span>
-                </a>
-            </div>
-            
-            <div class="nav-controls">
-                <button class="lang-toggle" id="langToggle" title="Toggle Language">
-                    <i class="fas fa-language"></i>
-                    <span class="lang-text">AR</span>
-                </button>
-                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="hero-background">
-                <div class="code-grid-bg"></div>
-                <div class="floating-particles" id="particles"></div>
-            </div>
-            
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="hero-greeting">
-                        <span class="greeting-text" data-text-en="Hello, I'm" data-text-fr="Bonjour, je suis">Hello, I'm</span>
-                        <span class="greeting-cursor">|</span>
-                    </div>
-                    
-                    <h1 class="hero-name" id="heroName">
-                        <span class="name-value">Karim Zayni</span>
-                    </h1>
-                    
-                    <div class="hero-title">
-                        <span class="title-text" data-text-en="Computation Fluid Dynamics (CFD) Engineer" data-text-fr="Ingénieur en Dynamique des fluides numérique">Computation Fluid Dynamics (CFD) Engineer</span>
-                    </div>
-                    
-                    <p class="hero-description" data-text-en="Passionate developer focused on high-fidelity simulations, numerical methods, and scientific computing." data-text-fr="Développeur passionné spécialisé dans les simulations haute fidélité, les méthodes numériques et le calcul scientifique.">
-                        Passionate developer focused on high-fidelity simulations, numerical methods, and scientific computing.
-                    </p>
-                    
-                    <div class="hero-social">
-                        <a href="https://www.linkedin.com/in/karim-zayni/" 
-                        class="social-icon" 
-                        title="LinkedIn"
-                        target="_blank" 
-                        rel="noopener noreferrer">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-
-                        <a href="mailto:mkzayni@gmail.com" 
-                        class="social-icon" 
-                        title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+        <!-- Navigation Header -->
+        <header class="main-header" id="header">
+            <nav class="nav-container">
+                <div class="nav-brand">
+                    <div class="brand-logo">
+                    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+                    <dotlottie-wc src="https://lottie.host/22eaf91e-47ce-45f1-b394-26c05c8e0287/RQjny2eql7.json" style="width: 100px;height: 100px" autoplay loop></dotlottie-wc>
                     </div>
                 </div>
                 
-                <div class="hero-image-wrapper">
-                    <div class="hero-image-container">
-                        <div class="profile-image-glow"></div>
-                        <div class="profile-image-frame">
-                            <div class="profile-image" id="profileImage">
-                                <img src="assets/lagrangian/dropletTrajectoriesChapelCon.png" alt="Airfoil" class="profile-image-img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="scroll-indicator">
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
-                </div>
-                <span class="scroll-text" data-text-en="Scroll Down" data-text-fr="Défiler">Scroll Down</span>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section about-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-number">01</span>
-                    <h2 class="section-title">
-                        <span class="title-text" data-text-en="About Me" data-text-fr="Profil">About Me</span>
-                    </h2>
-                    <div class="section-line"></div>
-                </div>
-                
-                <div class="about-content">
-                    <div class="about-text-wrapper">
-                        <p class="about-text"
-                            data-text-en="I am currently finishing my PhD at Polytechnique Montréal, where I develop cutting-edge ice accretion and prediction tools for aircraft applications.
-
-                            I am one of the principal developers and maintainers of our in-house software CHAMPS (CHApel Multi-Physics Software), a high-performance framework dedicated to advanced aerodynamic, icing, and multiphysics simulations. My work focuses on high-fidelity numerical methods, scientific computing, and scalable HPC workflows for ice accretion.
-
-                            I obtained my engineering diploma in France at Polytech'Lyon and complemented it with a Master’s degree in Fluid Dynamics from Centrale Lyon. I am a versatile and adaptable engineer, comfortable working across disciplines and environments.
-
-                            Outside of research, I enjoy traveling, reading, playing tennis, and learning the piano."
-                            data-text-fr="Je termine actuellement un doctorat à Polytechnique Montréal, où je développe des outils de prédiction et de simulation de l’accrétion de glace pour des applications aéronautiques.
-
-                            Je suis un des développeurs principaux du logiciel interne CHAMPS (CHApel Multi-Physics Software), un framework haute performance dédié aux simulations multiphysiques, aérodynamiques et de givrage. Mes travaux portent sur les méthodes numériques haute fidélité, le calcul scientifique et les environnements de calcul haute performance pour le givrage.
-
-                            J’ai obtenu mon diplôme d’ingénieur en France à Polytech'Lyon, complété par un Master en mécanique des fluides à Centrale Lyon. Polyvalent et adaptable, je m’intègre facilement à des contextes et des équipes variés.
-
-                            En dehors de la recherche, je m’intéresse aux voyages, à la lecture, au tennis et j’essaie d’apprendre le piano.">
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Experience Section -->
-        <section id="experience" class="section experience-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-number">02</span>
-                    <h2 class="section-title">
-                        <span class="title-text" data-text-en="Experience" data-text-fr="Expériences">Experience</span>
-                    </h2>
-                    <div class="section-line"></div>
-                </div>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <div class="timeline-year">2022 - Present</div>
-                                <img class="timeline-logo" src="assets/logos/logo_polimo.png" alt="Polytechnique Montréal logo"/>
-                            </div>
-                            <h3 class="timeline-title" data-text-en="Developer/Researcher" data-text-fr="Développeur/Chercheur">Developer/Researcher</h3>
-                            <div class="timeline-company">
-                                <i class="fas fa-building"></i>
-                                Polytechnique Montréal
-                            </div>
-                            <p class="timeline-description"
-                            data-text-en="PhD researcher specializing in high-fidelity computational fluid dynamics and aircraft icing prediction. My doctoral work focuses on the development of advanced numerical models and scalable simulation tools for aeronautical applications, combining physics-based modeling, scientific computing, and high-performance computing. I serve as a principal developer and maintainer of the in-house multiphysics framework CHAMPS, contributing to its architecture, numerical methods, and long-term sustainability."
-                            data-text-fr="Doctorant spécialisé en mécanique des fluides numérique haute fidélité et en prédiction du givrage aéronautique. Mes travaux de doctorat portent sur le développement de modèles numériques avancés et d’outils de simulation performants pour des applications aéronautiques, en combinant modélisation physique, calcul scientifique et calcul haute performance. Je suis développeur principal et mainteneur du logiciel multiphysique interne CHAMPS, avec des contributions majeures à son architecture, à ses méthodes numériques et à sa pérennité logicielle.">
-                            </p>
-                            <div class="timeline-achievements">
-
-                                <div class="achievement-item">
-                                    <i class="fas fa-cogs"></i>
-                                    <span
-                                        data-text-en="Development of high-fidelity particle tracking solvers for icing simulations"
-                                        data-text-fr="Développement de solveurs de suivi de particules haute fidélité pour la simulation du givrage">
-                                        Development of high-fidelity particle tracking solvers for icing simulations
-                                    </span>
-                                </div>
-
-                                <div class="achievement-item">
-                                    <i class="fas fa-layer-group"></i>
-                                    <span
-                                        data-text-en="Design and implementation of level-set based ice accretion models"
-                                        data-text-fr="Conception et implémentation de modèles de croissance de glace basés sur les méthodes level-set">
-                                        Design and implementation of level-set based ice accretion models
-                                    </span>
-                                </div>
-
-                                <div class="achievement-item">
-                                    <i class="fas fa-wave-square"></i>
-                                    <span
-                                        data-text-en="Surface smoothing and mesh quality control for evolving geometries"
-                                        data-text-fr="Lissage des surfaces et contrôle de la qualité du maillage pour des géométries évolutives">
-                                        Surface smoothing and mesh quality control for evolving geometries
-                                    </span>
-                                </div>
-
-                                <div class="achievement-item">
-                                    <i class="fas fa-server"></i>
-                                    <span
-                                        data-text-en="Parallelization, scalability, and optimization of solvers for HPC platforms"
-                                        data-text-fr="Parallélisation, scalabilité et optimisation des solveurs pour plateformes HPC">
-                                        Parallelization, scalability, and optimization of solvers for HPC platforms
-                                    </span>
-                                </div>
-
-                                <div class="achievement-item">
-                                    <i class="fas fa-code-branch"></i>
-                                    <span
-                                        data-text-en="Principal developer and maintainer of the CHAMPS multiphysics software"
-                                        data-text-fr="Développeur principal et mainteneur du logiciel multiphysique CHAMPS">
-                                        Principal developer and maintainer of the CHAMPS multiphysics software
-                                    </span>
-                                </div>
-
-                                <div class="achievement-item">
-                                    <i class="fas fa-tools"></i>
-                                    <span
-                                        data-text-en="CI/CD pipelines, testing, and long-term codebase organization"
-                                        data-text-fr="Mise en place de pipelines CI/CD, tests et organisation du code sur le long terme">
-                                        CI/CD pipelines, testing, and long-term codebase organization
-                                    </span>
-                                </div>
-
-                                <div class="achievement-item">
-                                    <i class="fas fa-plug"></i>
-                                    <span
-                                        data-text-en="Development of APIs and interfaces to external libraries (METIS, CGAL, MMG, MKL)"
-                                        data-text-fr="Développement d’API et d’interfaces vers des bibliothèques externes (METIS, CGAL, MMG, MKL)">
-                                        Development of APIs and interfaces to external libraries (METIS, CGAL, MMG, MKL)
-                                    </span>
-                                </div>
-
-                                <div class="achievement-item">
-                                    <i class="fas fa-chalkboard-teacher"></i>
-                                    <span
-                                        data-text-en="Teaching assistant in undergraduate and graduate aerodynamics courses"
-                                        data-text-fr="Chargé de travaux dirigés en aérodynamique (licence et master)">
-                                        Teaching assistant in undergraduate and graduate aerodynamics courses
-                                    </span>
-                                </div>
-
-                                <div class="achievement-item">
-                                    <i class="fas fa-globe"></i>
-                                    <span
-                                        data-text-en="Participation in international summer schools (AIAA Aviation, CFDSC, SAE)"
-                                        data-text-fr="Participation à des écoles d’été internationales (AIAA Aviation, CFDSC, SAE)">
-                                        Participation in international summer schools (AIAA Aviation, CFDSC, SAE)
-                                    </span>
-                                </div>
-
-                            </div>
-                            <div class="timeline-tags">
-                                <span class="tag">Chapel</span>
-                                <span class="tag">C/C++</span>
-                                <span class="tag">CGAL</span>
-                                <span class="tag">MMG</span>
-                                <span class="tag">HPC</span>
-                                <span class="tag">Scripting</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section education-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-number">03</span>
-                    <h2 class="section-title">
-                        <span class="title-text" data-text-en="Education" data-text-fr="Éducation">Education</span>
-                    </h2>
-                    <div class="section-line"></div>
-                </div>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <div class="timeline-year">2022 - Present</div>
-                                <img class="timeline-logo" src="assets/logos/logo_polimo.png" alt="Polytechnique Montréal logo"/>
-                            </div>
-                            <h3 class="timeline-title" data-text-en="Ph.D. Student" data-text-fr="Ph.D. Étudiant">Ph.D. Student</h3>
-                            <div class="timeline-company">
-                                <i class="fas fa-building"></i>
-                                Polytechnique Montréal
-                            </div>
-                            <p class="timeline-description"
-                            data-text-en="PhD in Mechanical Engineering – Aircraft Icing and CFD. Doctoral research focused on the development of high-fidelity numerical tools for aircraft icing prediction, combining CFD, particle tracking, and level-set methods with strong emphasis on scalability and scientific software engineering."
-                            data-text-fr="Doctorat en génie mécanique – Givrage aéronautique et CFD. Travaux de doctorat consacrés au développement d’outils numériques haute fidélité pour la prédiction du givrage aéronautique, combinant CFD, transport de particules et méthodes level-set, avec un fort accent sur la performance et l’ingénierie logicielle scientifique.">
-                            
-                            PhD in Mechanical Engineering – Aircraft Icing and CFD.  
-                            Doctoral research focused on the development of high-fidelity numerical tools for aircraft icing prediction, combining CFD, particle tracking, and level-set methods with strong emphasis on scalability and scientific software engineering.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section skills-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-number">04</span>
-                    <h2 class="section-title">
-                        <span class="title-text" data-text-en="Skills" data-text-fr="Compétences">Skills</span>
-                    </h2>
-                    <div class="section-line"></div>
-                </div>
-                
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3 class="category-title"
-                            data-text-en="Computational Fluid Dynamics"
-                            data-text-fr="Dynamique des Fluides Numérique">
-                            Computational Fluid Dynamics
-                        </h3>
-
-                        <div class="skill-items">
-
-                            <div class="skill-item" data-skill="CFD Solvers" data-percent="95">
-                                <div class="skill-header">
-                                    <span class="skill-name">CFD solvers (RANS, LES, DES)</span>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-
-                            <div class="skill-item" data-skill="Particle Tracking" data-percent="90">
-                                <div class="skill-header">
-                                    <span class="skill-name">Lagrangian particle tracking</span>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-
-                            <div class="skill-item" data-skill="Level Set" data-percent="88">
-                                <div class="skill-header">
-                                    <span class="skill-name">Level-set methods (ice accretion)</span>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-
-                            <div class="skill-item" data-skill="HPC" data-percent="92">
-                                <div class="skill-header">
-                                    <span class="skill-name">HPC & parallel computing (MPI / Chapel)</span>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-
-                            <div class="skill-item" data-skill="Scientific Computing" data-percent="90">
-                                <div class="skill-header">
-                                    <span class="skill-name">Scientific computing & numerical methods</span>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-number">05</span>
-                    <h2 class="section-title">
-                        <span class="title-text" data-text-en="Contact" data-text-fr="Contact">Contact</span>
-                    </h2>
-                    <div class="section-line"></div>
-                </div>
-                
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 class="contact-label" data-text-en="Email" data-text-fr="Courriel">Email</h4>
-                                <a href="mailto:mkzayni@gmail.com" class="contact-value">mkzayni@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 class="contact-label" data-text-en="Phone" data-text-fr="Téléphone">Phone</h4>
-                                <a href="tel:+15814475735" class="contact-value">+1 581 447 5735</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4 class="contact-label" data-text-en="Location" data-text-fr="Localisation">Location</h4>
-                                <span class="contact-value"
-                                    data-text-en="Montréal, Québec - Canada"
-                                    data-text-fr="Montréal, Québec - Canada">
-                                    Montréal, Québec - Canada
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-text-wrapper">
-                    <p class="footer-text">
-                        <span class="footer-copyright">© 2025 Karim Zayni</span>
-                        <span class="footer-divider">•</span>
-                        <span class="footer-built">Flight-Tested</span>
-                        <span class="footer-divider">•</span>
-                        <span class="footer-built">
-                            Inspired by
-                            <a href="https://codepen.io/Kan3an/pen/qEZzbom"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                                Kan3an (CodePen)
-                            </a>,
-                            completely revamped by me.
-                        </span>
-                    </p>
-                </div>
-
-                <!-- LinkedIn button -->
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/karim-zayni/" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="footer-social-link"
-                    aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
+                <div class="nav-menu" id="navMenu">
+                    <a href="#home" class="nav-link active" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-text" data-text-en="Home" data-text-fr="Acceuil">Home</span>
+                    </a>
+                    <a href="#about" class="nav-link" data-section="about">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-text" data-text-en="About" data-text-fr="Profil">About</span>
+                    </a>
+                    <a href="#experience" class="nav-link" data-section="experience">
+                        <i class="fas fa-briefcase"></i>
+                        <span class="nav-text" data-text-en="Experience" data-text-fr="Expérience">Experience</span>
+                    </a>
+                    <a href="#education" class="nav-link" data-section="education">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="nav-text" data-text-en="Education" data-text-fr="Éducation">Education</span>
+                    </a>
+                    <a href="#skills" class="nav-link" data-section="skills">
+                        <i class="fas fa-code"></i>
+                        <span class="nav-text" data-text-en="Skills" data-text-fr="Compétences">Skills</span>
+                    </a>
+                    <a href="#contact" class="nav-link" data-section="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span class="nav-text" data-text-en="Contact" data-text-fr="Contact">Contact</span>
                     </a>
                 </div>
+                
+                <div class="nav-controls">
+                    <button class="lang-toggle" id="langToggle" title="Toggle Language">
+                        <i class="fas fa-language"></i>
+                        <span class="lang-text">AR</span>
+                    </button>
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Hero Section -->
+            <section id="home" class="hero-section">
+                <div class="hero-background">
+                    <div class="code-grid-bg"></div>
+                    <div class="floating-particles" id="particles"></div>
+                </div>
+                
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <div class="hero-greeting">
+                            <span class="greeting-text" data-text-en="Hello, I'm" data-text-fr="Bonjour, je suis">Hello, I'm</span>
+                            <span class="greeting-cursor">|</span>
+                        </div>
+                        
+                        <h1 class="hero-name" id="heroName">
+                            <span class="name-value">Karim Zayni</span>
+                        </h1>
+                        
+                        <div class="hero-title">
+                            <span class="title-text" data-text-en="Computation Fluid Dynamics (CFD) Engineer" data-text-fr="Ingénieur en Dynamique des fluides numérique">Computation Fluid Dynamics (CFD) Engineer</span>
+                        </div>
+                        
+                        <p class="hero-description" data-text-en="Passionate developer focused on high-fidelity simulations, numerical methods, and scientific computing." data-text-fr="Développeur passionné spécialisé dans les simulations haute fidélité, les méthodes numériques et le calcul scientifique.">
+                            Passionate developer focused on high-fidelity simulations, numerical methods, and scientific computing.
+                        </p>
+                        
+                        <div class="hero-social">
+                            <a href="https://www.linkedin.com/in/karim-zayni/" 
+                            class="social-icon" 
+                            title="LinkedIn"
+                            target="_blank" 
+                            rel="noopener noreferrer">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+
+                            <a href="mailto:mkzayni@gmail.com" 
+                            class="social-icon" 
+                            title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-container">
+                            <div class="profile-image-glow"></div>
+                                <div class="profile-image-frame">
+                                    <div class="profile-image" id="profileImage">
+                                        <img id="slideshowImage" src="assets/me/kzayni.png" alt="Profile slideshow" class="profile-image-img">
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <div class="scroll-mouse">
+                        <div class="scroll-wheel"></div>
+                    </div>
+                    <span class="scroll-text" data-text-en="Scroll Down" data-text-fr="Défiler">Scroll Down</span>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="section about-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-number">01</span>
+                        <h2 class="section-title">
+                            <span class="title-text" data-text-en="About Me" data-text-fr="Profil">About Me</span>
+                        </h2>
+                        <div class="section-line"></div>
+                    </div>
+                    
+                    <div class="about-content">
+                        <div class="about-text-wrapper">
+                            <p class="about-text"
+                                data-text-en="I am currently finishing my PhD at Polytechnique Montréal, where I develop cutting-edge ice accretion and prediction tools for aircraft applications.
+
+                                I am one of the principal developers and maintainers of our in-house software CHAMPS (CHApel Multi-Physics Software), a high-performance framework dedicated to advanced aerodynamic, icing, and multiphysics simulations. My work focuses on high-fidelity numerical methods, scientific computing, and scalable HPC workflows for ice accretion.
+
+                                I obtained my engineering diploma in France at Polytech'Lyon and complemented it with a Master’s degree in Fluid Dynamics from Centrale Lyon. I am a versatile and adaptable engineer, comfortable working across disciplines and environments.
+
+                                Outside of research, I enjoy traveling, reading, playing tennis, and learning the piano."
+                                data-text-fr="Je termine actuellement un doctorat à Polytechnique Montréal, où je développe des outils de prédiction et de simulation de l’accrétion de glace pour des applications aéronautiques.
+
+                                Je suis un des développeurs principaux du logiciel interne CHAMPS (CHApel Multi-Physics Software), un framework haute performance dédié aux simulations multiphysiques, aérodynamiques et de givrage. Mes travaux portent sur les méthodes numériques haute fidélité, le calcul scientifique et les environnements de calcul haute performance pour le givrage.
+
+                                J’ai obtenu mon diplôme d’ingénieur en France à Polytech'Lyon, complété par un Master en mécanique des fluides à Centrale Lyon. Polyvalent et adaptable, je m’intègre facilement à des contextes et des équipes variés.
+
+                                En dehors de la recherche, je m’intéresse aux voyages, à la lecture, au tennis et j’essaie d’apprendre le piano.">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Experience Section -->
+            <section id="experience" class="section experience-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-number">02</span>
+                        <h2 class="section-title">
+                            <span class="title-text" data-text-en="Experience" data-text-fr="Expériences">Experience</span>
+                        </h2>
+                        <div class="section-line"></div>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-year">2022 - Present</div>
+                                    <img class="timeline-logo" src="assets/logos/logo_polimo.png" alt="Polytechnique Montréal logo"/>
+                                </div>
+                                <h3 class="timeline-title" data-text-en="Developer/Researcher" data-text-fr="Développeur/Chercheur">Developer/Researcher</h3>
+                                <div class="timeline-company">
+                                    <i class="fas fa-building"></i>
+                                    Polytechnique Montréal
+                                </div>
+                                <p class="timeline-description"
+                                data-text-en="PhD researcher specializing in high-fidelity computational fluid dynamics and aircraft icing prediction. My doctoral work focuses on the development of advanced numerical models and scalable simulation tools for aeronautical applications, combining physics-based modeling, scientific computing, and high-performance computing. I serve as a principal developer and maintainer of the in-house multiphysics framework CHAMPS, contributing to its architecture, numerical methods, and long-term sustainability."
+                                data-text-fr="Doctorant spécialisé en mécanique des fluides numérique haute fidélité et en prédiction du givrage aéronautique. Mes travaux de doctorat portent sur le développement de modèles numériques avancés et d’outils de simulation performants pour des applications aéronautiques, en combinant modélisation physique, calcul scientifique et calcul haute performance. Je suis développeur principal et mainteneur du logiciel multiphysique interne CHAMPS, avec des contributions majeures à son architecture, à ses méthodes numériques et à sa pérennité logicielle.">
+                                </p>
+                                <div class="timeline-achievements">
+
+                                    <div class="achievement-item">
+                                        <i class="fas fa-cogs"></i>
+                                        <span
+                                            data-text-en="Development of high-fidelity particle tracking solvers for icing simulations"
+                                            data-text-fr="Développement de solveurs de suivi de particules haute fidélité pour la simulation du givrage">
+                                            Development of high-fidelity particle tracking solvers for icing simulations
+                                        </span>
+                                    </div>
+
+                                    <div class="achievement-item">
+                                        <i class="fas fa-layer-group"></i>
+                                        <span
+                                            data-text-en="Design and implementation of level-set based ice accretion models"
+                                            data-text-fr="Conception et implémentation de modèles de croissance de glace basés sur les méthodes level-set">
+                                            Design and implementation of level-set based ice accretion models
+                                        </span>
+                                    </div>
+
+                                    <div class="achievement-item">
+                                        <i class="fas fa-wave-square"></i>
+                                        <span
+                                            data-text-en="Surface smoothing and mesh quality control for evolving geometries"
+                                            data-text-fr="Lissage des surfaces et contrôle de la qualité du maillage pour des géométries évolutives">
+                                            Surface smoothing and mesh quality control for evolving geometries
+                                        </span>
+                                    </div>
+
+                                    <div class="achievement-item">
+                                        <i class="fas fa-server"></i>
+                                        <span
+                                            data-text-en="Parallelization, scalability, and optimization of solvers for HPC platforms"
+                                            data-text-fr="Parallélisation, scalabilité et optimisation des solveurs pour plateformes HPC">
+                                            Parallelization, scalability, and optimization of solvers for HPC platforms
+                                        </span>
+                                    </div>
+
+                                    <div class="achievement-item">
+                                        <i class="fas fa-code-branch"></i>
+                                        <span
+                                            data-text-en="Principal developer and maintainer of the CHAMPS multiphysics software"
+                                            data-text-fr="Développeur principal et mainteneur du logiciel multiphysique CHAMPS">
+                                            Principal developer and maintainer of the CHAMPS multiphysics software
+                                        </span>
+                                    </div>
+
+                                    <div class="achievement-item">
+                                        <i class="fas fa-tools"></i>
+                                        <span
+                                            data-text-en="CI/CD pipelines, testing, and long-term codebase organization"
+                                            data-text-fr="Mise en place de pipelines CI/CD, tests et organisation du code sur le long terme">
+                                            CI/CD pipelines, testing, and long-term codebase organization
+                                        </span>
+                                    </div>
+
+                                    <div class="achievement-item">
+                                        <i class="fas fa-plug"></i>
+                                        <span
+                                            data-text-en="Development of APIs and interfaces to external libraries (METIS, CGAL, MMG, MKL)"
+                                            data-text-fr="Développement d’API et d’interfaces vers des bibliothèques externes (METIS, CGAL, MMG, MKL)">
+                                            Development of APIs and interfaces to external libraries (METIS, CGAL, MMG, MKL)
+                                        </span>
+                                    </div>
+
+                                    <div class="achievement-item">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                        <span
+                                            data-text-en="Teaching assistant in undergraduate and graduate aerodynamics courses"
+                                            data-text-fr="Chargé de travaux dirigés en aérodynamique (licence et master)">
+                                            Teaching assistant in undergraduate and graduate aerodynamics courses
+                                        </span>
+                                    </div>
+
+                                    <div class="achievement-item">
+                                        <i class="fas fa-globe"></i>
+                                        <span
+                                            data-text-en="Participation in international summer schools (AIAA Aviation, CFDSC, SAE)"
+                                            data-text-fr="Participation à des écoles d’été internationales (AIAA Aviation, CFDSC, SAE)">
+                                            Participation in international summer schools (AIAA Aviation, CFDSC, SAE)
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div class="timeline-tags">
+                                    <span class="tag">Chapel</span>
+                                    <span class="tag">C/C++</span>
+                                    <span class="tag">CGAL</span>
+                                    <span class="tag">MMG</span>
+                                    <span class="tag">HPC</span>
+                                    <span class="tag">Scripting</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="section education-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-number">03</span>
+                        <h2 class="section-title">
+                            <span class="title-text" data-text-en="Education" data-text-fr="Éducation">Education</span>
+                        </h2>
+                        <div class="section-line"></div>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-year">2022 - Present</div>
+                                    <img class="timeline-logo" src="assets/logos/logo_polimo.png" alt="Polytechnique Montréal logo"/>
+                                </div>
+                                <h3 class="timeline-title" data-text-en="Ph.D. Student" data-text-fr="Ph.D. Étudiant">Ph.D. Student</h3>
+                                <div class="timeline-company">
+                                    <i class="fas fa-building"></i>
+                                    Polytechnique Montréal
+                                </div>
+                                <p class="timeline-description"
+                                data-text-en="PhD in Mechanical Engineering – Aircraft Icing and CFD. Doctoral research focused on the development of high-fidelity numerical tools for aircraft icing prediction, combining CFD, particle tracking, and level-set methods with strong emphasis on scalability and scientific software engineering."
+                                data-text-fr="Doctorat en génie mécanique – Givrage aéronautique et CFD. Travaux de doctorat consacrés au développement d’outils numériques haute fidélité pour la prédiction du givrage aéronautique, combinant CFD, transport de particules et méthodes level-set, avec un fort accent sur la performance et l’ingénierie logicielle scientifique.">
+                                
+                                PhD in Mechanical Engineering – Aircraft Icing and CFD.  
+                                Doctoral research focused on the development of high-fidelity numerical tools for aircraft icing prediction, combining CFD, particle tracking, and level-set methods with strong emphasis on scalability and scientific software engineering.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section skills-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-number">04</span>
+                        <h2 class="section-title">
+                            <span class="title-text" data-text-en="Skills" data-text-fr="Compétences">Skills</span>
+                        </h2>
+                        <div class="section-line"></div>
+                    </div>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3 class="category-title"
+                                data-text-en="Computational Fluid Dynamics"
+                                data-text-fr="Dynamique des Fluides Numérique">
+                                Computational Fluid Dynamics
+                            </h3>
+
+                            <div class="skill-items">
+
+                                <div class="skill-item" data-skill="CFD Solvers" data-percent="95">
+                                    <div class="skill-header">
+                                        <span class="skill-name">CFD solvers (RANS, LES, DES)</span>
+                                        <span class="skill-percent">0%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="Particle Tracking" data-percent="90">
+                                    <div class="skill-header">
+                                        <span class="skill-name">Lagrangian particle tracking</span>
+                                        <span class="skill-percent">0%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="Level Set" data-percent="88">
+                                    <div class="skill-header">
+                                        <span class="skill-name">Level-set methods (ice accretion)</span>
+                                        <span class="skill-percent">0%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="HPC" data-percent="92">
+                                    <div class="skill-header">
+                                        <span class="skill-name">HPC & parallel computing (MPI / Chapel)</span>
+                                        <span class="skill-percent">0%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="Scientific Computing" data-percent="90">
+                                    <div class="skill-header">
+                                        <span class="skill-name">Scientific computing & numerical methods</span>
+                                        <span class="skill-percent">0%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section contact-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-number">05</span>
+                        <h2 class="section-title">
+                            <span class="title-text" data-text-en="Contact" data-text-fr="Contact">Contact</span>
+                        </h2>
+                        <div class="section-line"></div>
+                    </div>
+                    
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4 class="contact-label" data-text-en="Email" data-text-fr="Courriel">Email</h4>
+                                    <a href="mailto:mkzayni@gmail.com" class="contact-value">mkzayni@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4 class="contact-label" data-text-en="Phone" data-text-fr="Téléphone">Phone</h4>
+                                    <a href="tel:+15814475735" class="contact-value">+1 581 447 5735</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4 class="contact-label" data-text-en="Location" data-text-fr="Localisation">Location</h4>
+                                    <span class="contact-value"
+                                        data-text-en="Montréal, Québec - Canada"
+                                        data-text-fr="Montréal, Québec - Canada">
+                                        Montréal, Québec - Canada
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-text-wrapper">
+                        <p class="footer-text">
+                            <span class="footer-copyright">© 2025 Karim Zayni</span>
+                            <span class="footer-divider">•</span>
+                            <span class="footer-built">Flight-Tested</span>
+                            <span class="footer-divider">•</span>
+                            <span class="footer-built">
+                                Inspired by
+                                <a href="https://codepen.io/Kan3an/pen/qEZzbom"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                    Kan3an (CodePen)
+                                </a>,
+                                completely revamped by me.
+                            </span>
+                        </p>
+                    </div>
+
+                    <!-- LinkedIn button -->
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/karim-zayni/" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-social-link"
+                        aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <!-- Motion One loaded dynamically -->
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
-    <script  src="./script.js"></script>
-
-  </body>
-  
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <!-- Motion One loaded dynamically -->
+        <script src="js/animations.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>

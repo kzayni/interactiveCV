@@ -10,6 +10,52 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+
+    const images = [
+        'assets/me/kzayni.png',
+        'assets/lagrangian/dropletTrajectoriesChapelCon.png'
+    ];
+
+    let currentIndex = 0;
+    const img = document.getElementById('slideshowImage');
+
+    if (!img) return;
+
+    const SLIDE_DURATION = 600;   // must match CSS transition
+    const DISPLAY_TIME  = 4000;  // time image stays visible
+
+    setInterval(() => {
+
+        /* 1. Slide CURRENT image out to the RIGHT */
+        img.style.transform = 'translateX(100%)';
+        img.style.opacity = '0';
+
+        setTimeout(() => {
+
+            /* 2. Update image index */
+            currentIndex = (currentIndex + 1) % images.length;
+            img.src = images[currentIndex];
+
+            /* 3. Place NEXT image OFFSCREEN on the LEFT */
+            img.style.transition = 'none';
+            img.style.transform = 'translateX(-100%)';
+            img.style.opacity = '0';
+
+            /* force reflow so browser applies the position immediately */
+            img.offsetHeight;
+
+            /* 4. Slide NEXT image INTO view (LEFT → CENTER) */
+            img.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
+            img.style.transform = 'translateX(0)';
+            img.style.opacity = '1';
+
+        }, SLIDE_DURATION);
+
+    }, DISPLAY_TIME);
+
+});
+
 function initializeApp() {
     loadPreferences();
     initLanguage();
@@ -463,39 +509,6 @@ function initHeroAnimations() {
         });
     }
     
-    const profileImage = document.getElementById('profileImage');
-    if (profileImage) {
-        anime({
-            targets: profileImage,
-            opacity: [0, 1],
-            scale: [0.8, 1],
-            rotate: [180, 0],
-            delay: 1000,
-            duration: 1500,
-            easing: 'easeOutElastic(1, .8)'
-        });
-        
-        profileImage.addEventListener('mouseenter', () => {
-            anime({
-                targets: profileImage,
-                scale: [1, 1.1],
-                rotate: [0, 5],
-                duration: 500,
-                easing: 'easeOutElastic(1, .8)'
-            });
-        });
-        
-        profileImage.addEventListener('mouseleave', () => {
-            anime({
-                targets: profileImage,
-                scale: [1.1, 1],
-                rotate: [5, 0],
-                duration: 500,
-                easing: 'easeOutElastic(1, .8)'
-            });
-        });
-    }
-    
     const badges = document.querySelectorAll('.floating-badge');
     if (badges.length > 0) {
         badges.forEach((badge, index) => {
@@ -676,35 +689,6 @@ function initContactAnimations() {
                 anime({ targets: item, scale: [1.02, 1], duration: 200, easing: 'easeOutQuad' });
             }
         });
-    });
-}
-
-function initParallax() {
-    const profileImage = document.getElementById('profileImage');
-    if (!profileImage) return;
-    
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrolled = window.pageYOffset;
-                const parallaxSpeed = 0.3;
-                const maxOffset = 100;
-                const offset = Math.min(scrolled * parallaxSpeed, maxOffset);
-                
-                if (profileImage) {
-                    profileImage.style.transform = `translateY(${offset}px)`;
-                }
-                
-                const gridBg = document.querySelector('.code-grid-bg');
-                if (gridBg) {
-                    gridBg.style.transform = `translateY(${scrolled * 0.2}px)`;
-                }
-                
-                ticking = false;
-            });
-            ticking = true;
-        }
     });
 }
 

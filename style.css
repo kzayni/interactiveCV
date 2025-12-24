@@ -218,16 +218,27 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(10, 14, 39, 0.95);
+  background: rgba(10, 14, 39, 0.85);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
   transition: all var(--transition);
 }
 
+.main-content { padding-top: var(--header-h); }
+
+/* Bonus: when you click nav anchors, the section won't hide under header */
+section[id] { scroll-margin-top: var(--header-h); }
+
 /* You said: keep the bar the same color even at the top.
    So we DO NOT change background opacity on scroll; we only add shadow. */
-.main-header.scrolled { box-shadow: var(--shadow-md); }
+.main-header.scrolled {
+  background: rgba(15, 23, 42, 0.05); /* dark blue translucent */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+}
 
 .nav-container {
   max-width: 1400px;
@@ -304,7 +315,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
 
 .nav-controls { display: flex; gap: 1rem; align-items: center; }
 
-.lang-toggle,
 .theme-toggle,
 .menu-toggle {
   background: var(--bg-card);
@@ -312,6 +322,21 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
   color: var(--text-primary);
   padding: 0.6rem 1rem;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.lang-toggle{
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  height: 38px;
   cursor: pointer;
   transition: all var(--transition);
   display: flex;
@@ -337,6 +362,42 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
 
 .main-content { margin-top: 80px; }
 
+/* Mobile dropdown should start exactly at the bottom edge of the header */
+@media (max-width: 768px) {
+
+  .main-header {
+    position: sticky; /* or fixed, depending on your setup */
+    top: 0;
+    z-index: 9999;
+  }
+
+  .nav-container {
+    position: relative; /* anchors the dropdown */
+  }
+
+  /* Dropdown panel */
+  #navMenu {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    top: 100%;           /* attaches to nav-container bottom */
+    margin-top: 0;       /* no gap */
+    border-top: 0;       /* no seam line */
+
+    /* Optional: if you want it to align to header background style */
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    display: none;       /* your JS toggles active */
+  }
+
+  #navMenu.active {
+    display: block;
+  }
+}
+
 /* ==========================================================================
    6) Hero (Background grid + particles + headline)
    ========================================================================== */
@@ -348,6 +409,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
   position: relative;
   overflow: hidden;
   padding: 4rem 0;
+  padding-top: var(--header-h);
 }
 
 .hero-background {
@@ -566,6 +628,110 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
   background: var(--primary);
   border-radius: 2px;
   animation: scrollWheel 2s infinite;
+}
+
+/* ==========================================================================
+   Mobile layout fixes (phones & small tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* 1) Prevent hero content being hidden by the fixed header */
+  .hero-section {
+    padding-top: calc(var(--header-height, 80px) + 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 2) Center hero text properly */
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-greeting,
+  .hero-name,
+  .hero-title,
+  .hero-description {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-greeting { justify-content: center; }
+
+  /* 3) Slightly lower the slideshow (phones only) */
+  .hero-image-wrapper {
+    margin-top: 3rem;
+  }
+
+  /* 4) Put social icons above the scroll indicator (no 'order' needed) */
+  .hero-social {
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+/* ==========================================================================
+   Mobile layout fixes (phones & small tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* 1) Prevent hero content being hidden by the fixed header */
+  .hero-section {
+    padding-top: calc(var(--header-height, 80px) + 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 2) Center hero text properly */
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-greeting,
+  .hero-name,
+  .hero-title,
+  .hero-description {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-greeting { justify-content: center; }
+
+  /* 3) Slightly lower the slideshow (phones only) */
+  .hero-image-wrapper {
+    margin-top: 3rem;
+  }
+
+  /* 4) Put social icons above the scroll indicator (no 'order' needed) */
+  .hero-social {
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Scroll indicator: force it into normal flow and center it */
+  .scroll-indicator {
+    order: 4;
+    position: static;      /* important: cancels absolute/fixed desktop positioning */
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 0.75rem;
+    padding-bottom: 0.5rem;
+    z-index: 1;
+  }
+}
 }
 
 /* ==========================================================================
@@ -1105,3 +1271,5 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
+
+.contact-item .fa-maple-leaf { color: #e11d48; }

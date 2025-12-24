@@ -64,6 +64,67 @@
   --text-muted: #9ca3af;
 }
 
+/* Dark theme overrides (neon blue accent) */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-dark: #0b1020;          /* main page background */
+  --bg-darker: #070b16;        /* deepest sections / loader */
+  --bg-card: #0f172a;          /* cards, panels */
+  --bg-hover: #111c3a;         /* hover states */
+
+  /* Borders */
+  --border: rgba(56, 189, 248, 0.25);
+
+  /* Text */
+  --text-primary: #e5f3ff;     /* near-white with blue tint */
+  --text-secondary: #9bdcff;   /* soft neon blue */
+  --text-muted: #6fa8cc;
+
+  /* Primary neon accent */
+  --primary: #38bdf8;          /* neon sky blue */
+  --primary-soft: rgba(56, 189, 248, 0.35);
+
+  /* Gradients */
+  --gradient-1: linear-gradient(
+    135deg,
+    #38bdf8 0%,
+    #0ea5e9 50%,
+    #2563eb 100%
+  );
+
+  /* Shadows / glow */
+  --shadow-soft: 0 0 12px rgba(56, 189, 248, 0.25);
+  --shadow-strong: 0 0 24px rgba(56, 189, 248, 0.45);
+}
+
+/* Timeline title & company name - dark mode only */
+[data-theme="dark"] .timeline-title,
+[data-theme="dark"] .timeline-company {
+  color: var(--neon-blue);
+}
+
+/* Optional subtle glow (recommended, not too much) */
+[data-theme="dark"] .timeline-title {
+  text-shadow: 0 0 8px var(--neon-blue-glow);
+}
+
+/* ==========================================================================
+   Timeline logos – improve visibility in dark mode only
+   ========================================================================== */
+
+[data-theme="dark"] .timeline-logo {
+  background: #ffffff;              /* white background */
+  padding: 0.4rem;                  /* breathing space around logo */
+  border-radius: 6px;               /* soft rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* Optional: ensure transparent PNG/SVG stay crisp */
+[data-theme="dark"] .timeline-logo img,
+[data-theme="dark"] .timeline-logo {
+  filter: none;
+}
+
 /* Direction helpers (keeping in case you reuse RTL later) */
 [dir="rtl"] { direction: rtl; text-align: right; }
 [dir="ltr"] { direction: ltr; text-align: left; }
@@ -346,7 +407,8 @@ section[id] { scroll-margin-top: var(--header-h); }
 }
 
 .lang-toggle:hover,
-.theme-toggle:hover {
+.theme-toggle:hover,
+.menu-toggle:hover {
   background: var(--bg-hover);
   border-color: var(--primary);
   color: var(--primary);
@@ -395,6 +457,10 @@ section[id] { scroll-margin-top: var(--header-h); }
 
   #navMenu.active {
     display: block;
+  }
+
+  [data-theme="dark"] #navMenu {
+    background: var(--bg-card); /* #0f172a from your dark tokens */
   }
 }
 
@@ -894,16 +960,37 @@ section[id] { scroll-margin-top: var(--header-h); }
   box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary);
 }
 
-/* optional: tiny pop */
-.timeline-item:hover .timeline-marker {
-  transform: translateX(-50%) scale(1.08);
+/* Marker pinned to center line (desktop) */
+.timeline-marker {
+  position: absolute;
+  top: 1.2rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--bg-dark);
+  opacity: 0.6;
+  transition: box-shadow var(--transition-smooth), opacity var(--transition-smooth), transform var(--transition-smooth);
 }
 
-/* Odd items: marker on right edge of the half column (center line) */
-.timeline-item:nth-child(odd) .timeline-marker { right: -8px; }
+/* Odd (left side item) */
+.timeline-item:nth-child(odd) .timeline-marker {
+  right: -8px;            /* half of 16px */
+  transform: none;        /* IMPORTANT */
+}
 
-/* Even items: marker on left edge of the half column (center line) */
-.timeline-item:nth-child(even) .timeline-marker { left: -8px; }
+/* Even (right side item) */
+.timeline-item:nth-child(even) .timeline-marker {
+  left: -8px;             /* half of 16px */
+  transform: none;        /* IMPORTANT */
+}
+
+/* Hover scale only (no translate) */
+.timeline-item:hover .timeline-marker {
+  opacity: 1;
+  transform: scale(1.08);
+  box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary);
+}
 
 .timeline-title {
     text-align: left;
@@ -974,6 +1061,20 @@ section[id] { scroll-margin-top: var(--header-h); }
 
 /* Company logo where the “current badge” was */
 .timeline-logo { height: 50px; object-fit: contain; opacity: 1; }
+
+@media (max-width: 768px) {
+  .timeline-item .timeline-marker,
+  .timeline-item:nth-child(odd) .timeline-marker,
+  .timeline-item:nth-child(even) .timeline-marker {
+    left: calc(1rem + 1px); /* center of the 2px line */
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item:hover .timeline-marker {
+    transform: translateX(-50%) scale(1.08);
+  }
+}
 
 /* ==========================================================================
    10) Contact + Footer (kept, but you can delete form styles if you removed it)

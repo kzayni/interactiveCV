@@ -201,19 +201,22 @@ function initNavigation() {
 }
 
 function handleScroll() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollPosition = window.scrollY + 100;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            AppState.currentSection = sectionId;
-            updateActiveNavLink(null, sectionId);
-        }
-    });
+  const header = document.querySelector('.main-header');
+  const headerH = header ? header.offsetHeight : 0;
+
+  const sections = document.querySelectorAll('section[id]');
+  const y = window.scrollY + headerH + 1;
+
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.id;
+
+    if (y >= top && y < top + height) {
+      AppState.currentSection = id;
+      updateActiveNavLink(null, id);
+    }
+  });
 }
 
 function updateActiveNavLink(clickedLink, sectionId = null) {
@@ -717,29 +720,6 @@ function initSmoothScroll() {
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-    
-    let currentSection = '';
-    window.addEventListener('scroll', () => {
-        const scrollPos = window.scrollY + 150;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                if (currentSection !== sectionId) {
-                    currentSection = sectionId;
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
                     });
                 }
             }

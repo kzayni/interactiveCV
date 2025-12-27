@@ -1158,6 +1158,43 @@ section[id] { scroll-margin-top: var(--header-h); }
   flex-shrink: 0;
 }
 
+/* Publications – responsive tweaks */
+@media (max-width: 768px) {
+  .publications-list { gap: 12px; }
+
+  .publication-content {
+    padding: 1.5rem;     /* match your timeline-content mobile feel */
+    margin-bottom: 1rem;
+  }
+
+  /* Reuse the same header behavior you already do for timeline on mobile */
+  .publication-content .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  /* Logo not too big on phones */
+  .publication-content .timeline-logo {
+    height: 44px;
+  }
+
+  /* Long DOI lines: safer wrapping */
+  .publication-doi a {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 480px) {
+  .publication-content { padding: 1.2rem; }
+
+  .publication-content .timeline-title { font-size: 1.15rem; }
+
+  .publication-authors { font-size: 0.9rem; }
+  .publication-doi { font-size: 0.85rem; }
+}
+
 /* ==========================================================================
    10) Contact + Footer (kept, but you can delete form styles if you removed it)
    ========================================================================== */

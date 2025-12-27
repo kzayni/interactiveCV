@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const images = [
         'assets/me/kzayni.png',
-        'assets/lagrangian/dropletTrajectoriesChapelCon.png'
+        'assets/lagrangian/dropletTrajectoriesChapelCon.png',
+        'assets/participations/ihpcss.jpg'
     ];
 
     let currentIndex = 0;
@@ -107,6 +108,7 @@ function setLanguage(lang) {
         body.setAttribute('data-dir', 'ltr');
     }
     updateLanguageUI();
+    updateTimelineYears();
 }
 
 function updateLanguageUI() {
@@ -340,7 +342,82 @@ document.addEventListener('DOMContentLoaded', () => {
     generateParticles();
 });
 
+//--------------Year formatting-----------------
 
+function formatTimelineEntry(startStr, endStr, lang) {
+  const start = parseYearOrYearMonth(startStr);
+  const end = endStr === "present" ? new Date() : parseYearOrYearMonth(endStr);
+
+  if (!start || !end) return "";
+
+  const totalMonths =
+    (end.getFullYear() - start.getFullYear()) * 12 +
+    (end.getMonth() - start.getMonth());
+
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  // ---------- Duration text ----------
+  let duration = "";
+
+  if (lang === "fr") {
+    if (years > 0) duration += `${years} an${years > 1 ? "s" : ""}`;
+    if (months > 0) duration += `${years > 0 ? " " : ""}${months} mois`;
+  } else {
+    if (years > 0) duration += `${years} year${years !== 1 ? "s" : ""}`;
+    if (months > 0) duration += `${years > 0 ? " " : ""}${months} month${months !== 1 ? "s" : ""}`;
+  }
+
+  // ---------- Date range ----------
+  if (years === 0) {
+    // < 1 year → Month Year
+    const startLabel = formatMonthYear(start, lang);
+    const endLabel =
+      endStr === "present"
+        ? (lang === "fr" ? "Présent" : "Present")
+        : formatMonthYear(end, lang);
+
+    return `${startLabel} - ${endLabel} (${duration})`;
+  }
+
+  // ≥ 1 year → Year range
+  const startYear = start.getFullYear();
+  const endYear =
+    endStr === "present"
+      ? (lang === "fr" ? "Présent" : "Present")
+      : end.getFullYear();
+
+  return `${startYear} - ${endYear} (${duration})`;
+}
+
+function parseYearOrYearMonth(value) {
+  if (!value) return null;
+
+  const parts = value.split("-").map(Number);
+  const year = parts[0];
+  const month = parts.length === 2 ? parts[1] - 1 : 0; // Jan if missing
+
+  return new Date(year, month, 1); // local time
+}
+
+function updateTimelineYears() {
+  const lang = AppState.currentLang;
+
+  document.querySelectorAll(".timeline-year").forEach(el => {
+    const start = el.dataset.start;
+    const end = el.dataset.end;
+    if (!start) return;
+
+    el.textContent = formatTimelineEntry(start, end, lang);
+  });
+}
+
+function formatMonthYear(date, lang) {
+  return date.toLocaleDateString(
+    lang === "fr" ? "fr-FR" : "en-US",
+    { month: "short", year: "numeric" }
+  );
+}
 
 //--------------animations.js-----------------
 function inView(element, callback, options = {}) {
